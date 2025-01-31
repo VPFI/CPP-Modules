@@ -5,32 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 20:18:39 by vpf               #+#    #+#             */
-/*   Updated: 2025/01/31 18:04:13 by vperez-f         ###   ########.fr       */
+/*   Created: 2025/01/31 20:06:18 by vperez-f          #+#    #+#             */
+/*   Updated: 2025/01/31 20:39:18 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
-void	test(Zombie *main_zomb, Zombie randomChump)
+int	main(void)
 {
-	std::cout << "Out of main" << std::endl;
-	Zombie	*second_zombie = newZombie("test");
+	int num_of_zombies = 40;
+	Zombie	*horde;
 
-	main_zomb->announce();
-	second_zombie->announce();
-	randomChump.announce();
-	delete (second_zombie);
-	std::cout << "Exiting test func scope" << std::endl;
-}
+	horde = zombieHorde(num_of_zombies, "Zombie");
+	for (int i = 0; i < num_of_zombies; i++)
+	{
+		horde[i].announce();
+	}
+	delete[] horde;
 
-int main(void)
-{
-	Zombie	*heap_zombie = newZombie("main");
-	Zombie	chump;
-
-	randomChump("Chumpito");
-	test(heap_zombie, chump);
-	delete (heap_zombie);
-	std::cout << "Exiting main" << std::endl;
+	return (0);
 }

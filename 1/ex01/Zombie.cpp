@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:18:57 by vpf               #+#    #+#             */
-/*   Updated: 2025/01/31 17:55:36 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:37:39 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ void	Zombie::_set_name(std::string name)
 {
 	this->_name = name;
 	return ;
+}
+
+void	Zombie::init(std::string name)
+{
+	this->_name = name;
+	return ;	
 }
 
 void	Zombie::announce(void)

@@ -5,32 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/30 20:18:39 by vpf               #+#    #+#             */
-/*   Updated: 2025/01/31 18:04:13 by vperez-f         ###   ########.fr       */
+/*   Created: 2025/01/31 20:39:26 by vperez-f          #+#    #+#             */
+/*   Updated: 2025/01/31 20:48:02 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <string>
+#include <iostream>
 
-void	test(Zombie *main_zomb, Zombie randomChump)
+int	main(void)
 {
-	std::cout << "Out of main" << std::endl;
-	Zombie	*second_zombie = newZombie("test");
+	std::string	str = "HI THIS IS BRAIN";
+	std::string *ptr = &str;
+	std::string &ref = str;
 
-	main_zomb->announce();
-	second_zombie->announce();
-	randomChump.announce();
-	delete (second_zombie);
-	std::cout << "Exiting test func scope" << std::endl;
-}
+	std::cout << "Str mem address: " << &str << std::endl;
+	std::cout << "Ptr mem address: " << ptr << std::endl;
+	std::cout << "Ref mem address: " << &ref << std::endl;
 
-int main(void)
-{
-	Zombie	*heap_zombie = newZombie("main");
-	Zombie	chump;
-
-	randomChump("Chumpito");
-	test(heap_zombie, chump);
-	delete (heap_zombie);
-	std::cout << "Exiting main" << std::endl;
+	std::cout << "Str val: " << str << std::endl;
+	std::cout << "Ptr val: " << *ptr << std::endl;
+	std::cout << "Ref val: " << ref << std::endl;
 }

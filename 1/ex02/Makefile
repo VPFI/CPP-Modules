@@ -6,13 +6,13 @@
 #    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/01/31 17:57:44 by vperez-f         ###   ########.fr        #
+#    Updated: 2025/01/31 20:38:39 by vperez-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = brains
 
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp 
 
 OBJ_DIR = obj/
 

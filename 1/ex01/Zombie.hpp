@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/30 20:18:50 by vpf               #+#    #+#             */
-/*   Updated: 2025/01/31 17:50:08 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/01/31 20:26:47 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ class Zombie
 		Zombie();
 		Zombie(std::string name);
 		~Zombie();
-
+		
+		void	init(std::string name);
 		void	announce( void );
 };
 
 Zombie*	newZombie(std::string name);
 void	randomChump(std::string name);
+Zombie*	zombieHorde(int n, std::string name);
 
 #endif
