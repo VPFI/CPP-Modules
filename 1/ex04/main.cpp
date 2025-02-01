@@ -5,25 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 20:39:26 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/01 16:05:14 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/01 18:11:34 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/01 23:30:31 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#include "replace_file.hpp"
 #include <iostream>
 
-int	main(void)
+int main(int argc, char **argv)
 {
-	std::string	str = "HI THIS IS BRAIN";
-	std::string *ptr = &str;
-	std::string &ref = str;
-
-	std::cout << "Str mem address: " << &str << std::endl;
-	std::cout << "Ptr mem address: " << ptr << std::endl;
-	std::cout << "Ref mem address: " << &ref << std::endl;
-
-	std::cout << "Str val: " << str << std::endl;
-	std::cout << "Ptr val: " << *ptr << std::endl;
-	std::cout << "Ref val: " << ref << std::endl;
+    if (argc != 4)
+    {
+        std::cout << "Invalid number of parameters | Filename [ocurrence] [replacement]" << std::endl;
+        return (1);
+    }
+    replace_file(argv[1], argv[2], argv[3]);
 }

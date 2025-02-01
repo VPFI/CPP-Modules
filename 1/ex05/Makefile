@@ -6,13 +6,13 @@
 #    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/02/01 17:34:03 by vpf              ###   ########.fr        #
+#    Updated: 2025/02/01 23:37:05 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = brains
+NAME = harl
 
-SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SRC = main.cpp Harl.cpp
 
 OBJ_DIR = obj/
 

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
+#    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/01/31 20:38:39 by vperez-f         ###   ########.fr        #
+#    Updated: 2025/02/01 17:33:49 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,10 @@ SRC = main.cpp
 OBJ_DIR = obj/
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
+
+DEP	= $(OBJ:%.o=%.d)
+
+DEPFLAGS = -MMD -MP
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -fsanitize=leak
 
@@ -29,7 +33,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)%.o: %.cpp Makefile
 	@mkdir -p $(@D)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf obj/
@@ -39,3 +43,9 @@ fclean: clean
 
 fcelan: clean
 	@rm $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
+
+-include $(DEP)

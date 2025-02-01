@@ -5,25 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 20:39:26 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/01 16:05:14 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/01 16:31:57 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/01 17:58:54 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-int	main(void)
+int main()
 {
-	std::string	str = "HI THIS IS BRAIN";
-	std::string *ptr = &str;
-	std::string &ref = str;
-
-	std::cout << "Str mem address: " << &str << std::endl;
-	std::cout << "Ptr mem address: " << ptr << std::endl;
-	std::cout << "Ref mem address: " << &ref << std::endl;
-
-	std::cout << "Str val: " << str << std::endl;
-	std::cout << "Ptr val: " << *ptr << std::endl;
-	std::cout << "Ref val: " << ref << std::endl;
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
+    return 0;
 }

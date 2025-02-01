@@ -3,37 +3,49 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
+#    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/27 16:14:54 by vperez-f          #+#    #+#              #
-#    Updated: 2025/01/29 18:32:06 by vperez-f         ###   ########.fr        #
+#    Updated: 2025/02/01 17:36:16 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bank
 
-CFILES = tests.cpp Account.cpp
+SRC = tests.cpp Account.cpp
 
-OFILES = $(CFILES:%.cpp=%.o)
+OBJ_DIR = obj/
+
+OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
+
+DEP	= $(OBJ:%.o=%.d)
+
+DEPFLAGS = -MMD -MP
+
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -fsanitize=leak
 
 CC = c++
 
-FLAGS =  -Wall -Wextra -Werror -std=c++98 -fsanitize=address -fsanitize=leak
-
 all: $(NAME)
 
-$(NAME): $(OFILES)
-	$(CC) $(FLAGS) $(OFILES) -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp Makefile
-	$(CC) $(FLAGS) -c $< -o $@
+$(OBJ_DIR)%.o: %.cpp Makefile
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(DEPFLAGS) -c $< -o $@
 
 clean:
-	rm $(OFILES)
+	@rm -rf obj/
 
 fclean: clean
-	rm $(NAME)
+	@rm $(NAME)
+
+fcelan: clean
+	@rm $(NAME)
 
 re: fclean all
 
 .PHONY: all clean fclean re
+
+-include $(DEP)

@@ -1,29 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/31 20:39:26 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/01 16:05:14 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/01 16:08:08 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/01 17:56:28 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#include "Weapon.hpp"
 #include <iostream>
 
-int	main(void)
+Weapon::Weapon()
 {
-	std::string	str = "HI THIS IS BRAIN";
-	std::string *ptr = &str;
-	std::string &ref = str;
+    return ;
+}
 
-	std::cout << "Str mem address: " << &str << std::endl;
-	std::cout << "Ptr mem address: " << ptr << std::endl;
-	std::cout << "Ref mem address: " << &ref << std::endl;
+Weapon::Weapon(std::string type)
+{
+    setType(type);
+    return ;
+}
 
-	std::cout << "Str val: " << str << std::endl;
-	std::cout << "Ptr val: " << *ptr << std::endl;
-	std::cout << "Ref val: " << ref << std::endl;
+Weapon::~Weapon()
+{
+    std::cout << "kjasdkhqweiqwe" << std::endl;
+    return ;
+}
+
+void Weapon::setType(std::string new_type)
+{
+    this->_type = new_type;
+    return ;
+}
+
+const std::string& Weapon::getType( void )
+{
+    const std::string  &type_ref = this->_type;
+    return (type_ref);
 }
