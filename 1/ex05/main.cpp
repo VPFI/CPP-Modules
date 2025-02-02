@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 23:37:48 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/02 01:12:00 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/02 00:22:28 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/02 00:55:05 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Harl.hpp"
 
-#include <string>
-#include <iostream>
+int	main(void)
+{	
+	Harl        harl;
+    std::string input;
 
-class Harl
-{
-    private:
-        void    _debug( void );
-        void    _info( void );
-        void    _warning( void );
-        void    _error( void );
-    public:
-        Harl();
-        ~Harl();
-
-        void    complain( std::string level );
-        typedef void    (Harl::*function_t)( void );
-};
+    while (getline(std::cin, input) && !(std::cin.eof()))
+	{
+        harl.complain(input);
+    }
+}
