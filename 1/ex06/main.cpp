@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   replace_file.hpp                                   :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 18:30:55 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/02 00:15:09 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/02 01:28:27 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/02 01:34:40 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Harl.hpp"
 
-#include <iostream>
-#include <fstream>
+int main(int argc, char **argv)
+{
+    Harl    harl;
 
-int replace_file(std::string filename, std::string s1, std::string s2);
+    if (argc != 2)
+    {
+        std::cout
+            << "./harlFilter [COMPLAINT] || "
+            << "Formal complaints being: "
+            << "DEBUG | INFO | WARNING | ERROR"
+        << std::endl;
+
+        return (1);
+    }
+    else
+    {
+        harl.complain(argv[1]);
+
+        return (0);
+    }
+}

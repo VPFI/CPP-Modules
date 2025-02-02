@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 23:37:11 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/02 01:43:24 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/02 01:21:42 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/02 01:44:05 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,30 @@ Harl::~Harl(void)
 
 void    Harl::complain(std::string level)
 {
-	std::string	levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    function_t  funcs[] = { &Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error };
+    size_t  sum = 0;
 
-    for (size_t i = 0; i < 4; i++)
-	{
-		if (level == levels[i])
-		{
-			(this->*funcs[i])();
-			break ;
-		}
-        if (i == 3)
-		    std::cout << "Unknown error..." << std::endl;
-	}
+    for (size_t i = 0; i < level.size(); i++) {sum += level[i];};
+    switch (sum)
+    {
+        case (DEBUG):
+            this->_debug();
+            //FALLTHROUGH
+        case (INFO):
+            this->_info();
+            //FALLTHROUGH
+        case (WARNING):
+            this->_warning();
+            //FALLTHROUGH
+        case (ERROR):
+            this->_error();
+            break;
+
+        default:
+            std::cout
+                << "[ Probably complaining about insignificant problems ]"
+            << std::endl;
+            break;
+    }
 }
 
 void	Harl::_debug(void)
