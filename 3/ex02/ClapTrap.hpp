@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:38 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/07 20:14:54 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/07 20:15:24 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string	_name;
 		int			_hit_points;
 		int			_energy_points;

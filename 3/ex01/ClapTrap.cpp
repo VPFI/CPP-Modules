@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 17:32:28 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/08 00:50:41 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/08 00:50:34 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,29 @@
 
 ClapTrap::ClapTrap() : 
 		 _hit_points(10), _energy_points(10), _attack_damage(0) 
-		{std::cout << "Default constructor called" << std::endl;}
+		{std::cout << "Default ClapTrap constructor called" << std::endl;}
 
 ClapTrap::ClapTrap(std::string name) : 
 		_name(name), _hit_points(10), 
 		_energy_points(10), _attack_damage(0) 
-		{std::cout << "Name (" << name << ") constructor called" << std::endl;}
+		{std::cout << "Name ClapTrap (" << name << ") constructor called" << std::endl;}
 
 ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	*this = copy;
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy ClapTrap constructor called" << std::endl;
 	return ;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap destructor (" << _name << ") called" << std::endl;
 	return ;
 }
 
 ClapTrap	&ClapTrap::operator = (const ClapTrap &c)
 {
+	std::cout << "ClapTrap copy assignment called" << std::endl;
 	if (this != &c)
 	{
 		this->_name = c._name;
