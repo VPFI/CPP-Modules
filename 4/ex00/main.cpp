@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 01:12:28 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/10 19:03:51 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/10 19:11:48 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,25 +39,6 @@ int main()
     delete (j);
     delete (i);
     delete (c);
-
-    std::cout << "\n\n-> Testing wrong animal <-" << std::endl;
-	const WrongAnimal    *WrongAnimals[] =
-	{
-		new WrongAnimal(),
-		new WrongCat()
-	};
-	const WrongCat *	fili = new WrongCat();
-
-	fili->makeSound();
-	delete fili;
-	for (int i = 0; i < 2; i++)
-	{
-		std::cout << "-----------" << std::endl; 
-		std::cout << WrongAnimals[i]->getType() << std::endl;
-		WrongAnimals[i]->makeSound();
-		delete WrongAnimals[i];
-		std::cout << "-----------" << std::endl; 
-	}
 
     return 0;
 }
