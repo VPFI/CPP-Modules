@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:48:17 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/14 00:29:47 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/14 02:03:16 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 #include <string>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -39,7 +39,8 @@ class Bureaucrat
         void                incrementGrade();
         void                decrementGrade();
 
-        void                signForm(Form &f);
+        void                signForm(AForm &f);
+        void                executeForm(AForm const &f);
 
         class GradeTooLowException : public std::exception
         {

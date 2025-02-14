@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 17:48:09 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/14 01:41:06 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/14 03:02:24 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void    Bureaucrat::decrementGrade()
     return ;
 }
 
-void    Bureaucrat::signForm(Form &form)
+void    Bureaucrat::signForm(AForm &form)
 {
     try
     {
@@ -131,6 +131,27 @@ void    Bureaucrat::signForm(Form &form)
             << *this << " couldn't sign form: " << form.getName()
             << "\n  Reason: " << e.what()
             << " Form requirement: Grade " << form.getSignGrade()
+        << std::endl;
+    }
+}
+
+void    Bureaucrat::executeForm(AForm const &form)
+{
+    try
+    {
+        form.execute(*this);
+        std::cout
+            << *this
+            << " executed form: "
+            << form.getName()
+        << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr
+            << *this << " couldn't execute form: " << form.getName()
+            << "\n  Reason: " << e.what()
+            << " Form requirement: Grade " << form.getExecGrade()
         << std::endl;
     }
 }
