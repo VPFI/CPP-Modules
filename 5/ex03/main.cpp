@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 20:30:14 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/14 17:39:18 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/14 21:16:58 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,23 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "Bureaucrat.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
 int main()
 {
     Bureaucrat  b1("11111", 1);
     Bureaucrat  b2("22222", 150);
-    AForm       *f1 = new ShrubberyCreationForm("TREE");
-    AForm       *f2 = new RobotomyRequestForm("SUBJECT");
-    AForm       *f3 = new PresidentialPardonForm("ACCUSED");
+    AForm       *f1;
+    AForm       *f2;
+    AForm       *f3;
+
+    Intern      pleb;
+
+    f1 = pleb.makeForm("shrubbery request", "TREE");
+    f2 = pleb.makeForm("robotomy request", "SUBJECT");
+    f3 = pleb.makeForm("wrong request", "ACCUSED");
+    f3 = pleb.makeForm("presidential request", "ACCUSED");
 
     std::cout << std::endl;
     b2.signForm(*f1);
