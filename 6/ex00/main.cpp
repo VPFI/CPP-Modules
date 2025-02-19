@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 18:09:14 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/17 21:51:51 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/19 23:13:07 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "ScalarConverter.hpp"
 
-#include <string>
-
-enum    e_inputType
+int main(int argc, char **argv)
 {
-    CHAR,
-    INT,
-    FLOAT,
-    DOUBLE,
-}       t_input_type;
-
-class ScalarConverter
-{
-    private:
-        ScalarConverter();
-
-    public:
-        ~ScalarConverter();
-
-        static void convert(std::string input);
-};
-
+    if (argc != 2)
+        return (1);
+    ScalarConverter::convert(argv[1]);
+}

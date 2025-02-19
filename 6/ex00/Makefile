@@ -6,13 +6,13 @@
 #    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/02/17 15:13:57 by vpf              ###   ########.fr        #
+#    Updated: 2025/02/20 00:54:24 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = convert
 
-SRC = main.cpp 
+SRC = main.cpp ScalarConverter.cpp
 OBJ_DIR = obj/
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)%.o)
@@ -38,7 +38,6 @@ clean:
 
 fclean: clean
 	@rm $(NAME)
-	@rm *_shrubbery
 
 fcelan: clean
 	@rm $(NAME)
