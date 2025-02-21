@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:17 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/20 19:22:26 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:35:37 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,85 +22,111 @@ ScalarConverter::~ScalarConverter()
     return ;
 }
 
-static void    convertToChar(std::string &input, int type)
+static bool	isEdgeCase(std::string &input)
+{
+	if (input == "+inf" || input == "+inff" || input == "-inf"
+		|| input == "-inff" || input == "nan" || input == "nanf")
+	{
+		return (true);
+	}
+	return (false);
+}
+
+static void    convertToChar(std::string &input, e_inputType type)
 {
 	(void)type;
 	int rawValue = std::atoi(input.c_str());
 
+	std::cout << "char: ";
 	if (type == CHAR_E)
 	{
-		std::cout << "char: '" << input << "'" << std::endl;
+		std::cout << "'" << input << "'";
 	}
 	else if (std::isprint(rawValue))
 	{
-		std::cout << "char: '" << static_cast<unsigned char>(rawValue) << "'" << std::endl;
+		std::cout << "'" << static_cast<unsigned char>(rawValue) << "'";
+	}
+	else if (isEdgeCase(input))
+	{
+		std::cout << "impossible";
 	}
 	else
 	{
-		std::cout << "char: " << "Non displayable" << std::endl;
+		std::cout << "Non displayable";
 	}
+	std::cout << std::endl;
 }
 
-static void    convertToInt(std::string &input, int type)
+static bool	checkLimits(std::string &input)
 {
-    if (type == INT_E)
-    {
-        std::cout << "int: " << input << std::endl;       
-    }
+	if (input.size() > 11)
+	{
+		std::cout << "impossible" << std::endl;
+		return (true);
+	}
+	else
+	{
+		long long num = std::atoll(input.c_str());
+		if (num < std::numeric_limits<int>::min() || num > std::numeric_limits<int>::max())
+		{
+			std::cout << "impossible" << std::endl;
+			return (true);
+		}
+	}
+	return (false);
+}
+
+static void	convertToInt(std::string &input, e_inputType type)
+{
+	std::cout << "int: ";
+	if (checkLimits(input))
+		return ;
+	else if (isEdgeCase(input))
+	{
+		std::cout << "impossible";
+	}
 	else if (type == CHAR_E)
 	{
-		std::cout << "int: " << static_cast<int>(input.at(0)) << std::endl;
+		std::cout << static_cast<int>(input.at(0));
 	}
     else
 	{
-        std::cout << "int: " << std::atoi(input.c_str()) << std::endl;
+        std::cout << std::atoi(input.c_str());
 	}
+	std::cout << std::endl;
 }
 
-static void    convertToFloat(std::string &input, int type)
+static void    convertToFloat(std::string &input, e_inputType type)
 {
 	std::cout.precision(1);
 	std::cout.setf(std::ios::fixed);
-	if (type == FLOAT_E || type == DOUBLE_E)
+	std::cout << "float: ";
+	if (type == CHAR_E)
 	{
-		if (type == FLOAT_E)
-			std::cout << "float: " << input << std::endl;
-		else
-			std::cout << "float: " << input << "f" << std::endl;
-	}
-	else if (type == CHAR_E)
-	{
-		std::cout << "float: " << static_cast<float>(input.at(0)) << "f" << std::endl;
+		std::cout << static_cast<float>(input.at(0)) << "f";
 	}
     else
 	{
-        std::cout << "float: " << static_cast<float>(std::atof(input.c_str())) << "f" << std::endl;
+        std::cout << static_cast<float>(std::atof(input.c_str())) << "f";
 	}
+	std::cout << std::endl;
 	std::cout.unsetf(std::ios::fixed);
 }
 
-static void    convertToDouble(std::string &input, int type)
+static void    convertToDouble(std::string &input, e_inputType type)
 {
 	std::cout.precision(1);
 	std::cout.setf(std::ios::fixed);
-	if (type == DOUBLE_E || type == FLOAT_E)
+	std::cout << "double: ";
+	if (type == CHAR_E)
 	{
-		if (type == DOUBLE_E)
-			std::cout << "double: " << input << std::endl;
-		else
-		{
-			input.erase(input.size() - 1);
-			std::cout << "double: " << input << std::endl;
-		}
-	}
-	else if (type == CHAR_E)
-	{
-		std::cout << "double: " << static_cast<double>(input.at(0)) << std::endl;
+		std::cout << static_cast<double>(input.at(0));
 	}
     else
 	{
-        std::cout << "double: " << static_cast<double>(std::atof(input.c_str())) << std::endl;
+        std::cout << static_cast<double>(std::atof(input.c_str()));
 	}
+	std::cout << std::endl;
 	std::cout.unsetf(std::ios::fixed);
 }
 
@@ -135,35 +161,49 @@ static int	checkInvalidChars(std::string &input)
 	return (0);
 }
 
-static int	checkNanInf(std::string &input)
+static e_inputType	checkNanInf(std::string &input)
 {
 	if (input == "+inf" || input == "-inf" || input == "nan")
 		return (DOUBLE_E);
 	if (input == "+inff" || input == "-inff" || input == "nanf")
 		return (FLOAT_E);
-	return (0);
+	return (STD_E);
 }
 
-static int	detectNativeType(std::string &input)
+static bool	checkForChar(std::string &input)
 {
-    int             decimal = 0;
-    int             f       = 0;
-    const char      *cstr = input.c_str();
-
-    if (input.empty())
-        return (UNDEFINED_E);
-    if (input.size() == 1)
+	if (input.size() == 1)
     {
         if (isprint(input.at(0)) && !isdigit(input.at(0)))
-            return (CHAR_E);
+            return (true);
     }
-	if (checkNanInf(input))
+	return (false);
+}
+
+static void	checkFormat(std::string &input, int &f, int &decimal)
+{
+	const char      *cstr = input.c_str();
+
 	if (checkInvalidChars(input) < 0)
-		return (UNDEFINED_E);
-    if (checkSingleOccurrence(cstr, '.', decimal) < 0)
-		return (UNDEFINED_E);
-    if (checkSingleOccurrence(cstr, 'f', f) < 0)
-		return (UNDEFINED_E);
+		throw (std::runtime_error("UNDEFINED type"));
+	if (checkSingleOccurrence(cstr, '.', decimal) < 0)
+		throw (std::runtime_error("UNDEFINED type"));
+	if (checkSingleOccurrence(cstr, 'f', f) < 0)
+		throw (std::runtime_error("UNDEFINED type"));
+}
+
+static e_inputType	detectNativeType(std::string &input)
+{
+    int             f       = 0;
+    int             decimal = 0;
+
+    if (input.empty())
+		throw (std::runtime_error("UNDEFINED type"));
+	if (checkForChar(input))
+		return (CHAR_E);
+	if (checkNanInf(input))
+		return (checkNanInf(input));
+	checkFormat(input, f, decimal);
     if (decimal)
     {
         if (f)
@@ -171,25 +211,26 @@ static int	detectNativeType(std::string &input)
         else
             return (DOUBLE_E);
     }
-    else
-        return (INT_E);
+	return (INT_E);
 }
 
 void ScalarConverter::convert(std::string input)
 {
-    int type;
+    e_inputType type;
 
     if (input.empty())
-        return ;
-    type = detectNativeType(input);
-    if (type == UNDEFINED_E)
+		return ;
+	try
     {
-        std::cout << "UNDEFINED type" << std:: endl;
-        return ;
-    }
+		type = detectNativeType(input);
 
-    convertToChar(input, type);
-    convertToInt(input, type);
-    convertToFloat(input, type);
-    convertToDouble(input, type);
+		convertToChar(input, type);
+		convertToInt(input, type);
+		convertToFloat(input, type);
+		convertToDouble(input, type);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << std::endl;
+    }
 }

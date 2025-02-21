@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:14 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/20 16:05:37 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:11:51 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 #include <limits>
 #include <iostream>
 #include <iomanip>
+#include <exception>
 
 enum    e_inputType
 {
+    STD_E,
     CHAR_E,
     INT_E,
     FLOAT_E,
-    DOUBLE_E,
-    UNDEFINED_E
+    DOUBLE_E
 };
 
 class ScalarConverter
