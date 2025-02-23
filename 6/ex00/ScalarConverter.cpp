@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:17 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/21 18:35:37 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/23 23:41:06 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ ScalarConverter::~ScalarConverter()
 
 static bool	isEdgeCase(std::string &input)
 {
-	if (input == "+inf" || input == "+inff" || input == "-inf"
-		|| input == "-inff" || input == "nan" || input == "nanf")
+	if (input == "inf" || input == "+inf" || input == "+inff"
+		|| input == "-inf"	|| input == "-inff" || input == "nan" || input == "nanf")
 	{
 		return (true);
 	}
