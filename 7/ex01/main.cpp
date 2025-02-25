@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/24 20:22:01 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/02/25 19:49:51 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ void	testUpper(T &x)
 	return ;
 }
 
+void	printArray(int *array)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		std::cout << array[i];
+	}
+	std::cout << std::endl;
+}
+
 int main(void)
 {
 	std::string	test = "gyurtdgiuwwjdwwd766586913{}{}[]";
@@ -41,12 +50,14 @@ int main(void)
 	size_t		sizeNum		= 10;
 
 	std::cout << "Before: [" << string << "]" << std::endl;
-	::iter(string, size, testUpper);
+	iter(string, size, testUpper);
 	std::cout << "After: [" << string << "]" << std::endl;
 
-	std::cout << "Before: [" << testNum << "]" << std::endl;
-	::iter(testNum, sizeNum, addOne);
-	std::cout << "After: [" << testNum << "]" << std::endl;
+	std::cout << "Array before" << std::endl;
+	printArray(testNum);
+	iter(testNum, sizeNum, addOne);
+	std::cout << "Array after" << std::endl;
+	printArray(testNum);
 
 	return (0);
 }
