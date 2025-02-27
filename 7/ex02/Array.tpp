@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.tpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 20:34:04 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/25 21:13:49 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:16:33 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ T	&Array<T>::operator [] (std::size_t pos) const
 {
 	if (this->_array == NULL)
 		throw (std::runtime_error("Error: Array is empty"));
-	if (pos > this->_size)
+	if (pos >= this->_size)
 		throw (std::out_of_range("Error: Array out of bounds"));
 	return (this->_array[pos]);
 }

@@ -6,13 +6,13 @@
 #    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/02/26 17:37:31 by vpf              ###   ########.fr        #
+#    Updated: 2025/02/26 21:26:35 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = array
+NAME = find
 
-SRC = mainsubj.cpp 
+SRC = main.cpp
 
 OBJ_DIR = obj/
 

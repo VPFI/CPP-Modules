@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Iter.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:14 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/26 17:39:55 by vpf              ###   ########.fr       */
+/*   Updated: 2025/02/27 02:27:11 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <cstdlib>
+#include <iostream>
+#include <stack>
 
 template <typename T>
 
-void iter(T *array, std::size_t size, void (*f)(T &))
+class MutantStack : public std::stack<T>
 {
-	if (array == NULL)
-		return ;
+    private:
+        
+    public:
+        MutantStack();
+        ~MutantStack();
+};
 
-	for (std::size_t i = 0; i < size; i++)
-	{
-		f(array[i]);
-	}
-
-	return ;
-}
+#include "MutantStack.tpp"
