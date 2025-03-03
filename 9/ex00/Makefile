@@ -6,13 +6,13 @@
 #    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/03/03 15:25:51 by vpf              ###   ########.fr        #
+#    Updated: 2025/03/03 19:45:00 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = btc
 
-SRC = main.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 OBJ_DIR = obj/
 
