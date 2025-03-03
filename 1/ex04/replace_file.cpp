@@ -6,19 +6,19 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 18:31:00 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/01 23:32:47 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/03 17:02:20 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "replace_file.hpp"
 
-int replace_file(std::string filename, std::string s1, std::string s2)
+int replace_file(std::string filename, std::string target, std::string replace)
 {
     std::ifstream           inFile;
     std::ofstream           outFile;
     std::string             line;
 
-    if (s1.empty() || s2.empty())
+    if (target.empty() || replace.empty())
     {
         std::cout << "Make sure that both ocurrence and replacement are valid non-zero" << std::endl;
         return (-1);
@@ -31,11 +31,12 @@ int replace_file(std::string filename, std::string s1, std::string s2)
         {
             while (getline(inFile, line))
             {
-                size_t  res = -1;
-                while ((res = line.find(s1, res + 1)) != std::string::npos)
+                size_t  pos = 0;
+                while ((pos = line.find(target, pos)) != std::string::npos)
                 {
-                    line.erase(res, s1.size());
-                    line.insert(res, s2);
+                    line.erase(pos, target.size());
+                    line.insert(pos, replace);
+                    pos += replace.size();
                 }
                 outFile << line << std::endl;
             }

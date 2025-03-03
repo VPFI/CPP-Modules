@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/01 16:21:47 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/03 14:07:52 by vpf              ###   ########.fr       */
+/*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
+/*   Updated: 2025/02/27 02:01:52 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include <iostream>
+#include "MutantStack.hpp"
 
-HumanA::HumanA(std::string name, Weapon &newWeapon) : _weapon(newWeapon)
+int main()
 {
-    this->_name = name;
-    return ;
-}
-HumanA::~HumanA(void)
-{
-    return ;
-}
-
-void    HumanA::attack(void)
-{
-    std::cout << this->_name << ": attacks with their " << this->_weapon.getType() << std::endl;
+	
 }

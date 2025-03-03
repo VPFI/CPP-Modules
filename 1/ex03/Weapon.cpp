@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/01 16:08:08 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/01 17:56:28 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/03 14:08:06 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Weapon::Weapon(std::string type)
 
 Weapon::~Weapon()
 {
-    std::cout << "kjasdkhqweiqwe" << std::endl;
+    std::cout << "Weapon destructor" << std::endl;
     return ;
 }
 
