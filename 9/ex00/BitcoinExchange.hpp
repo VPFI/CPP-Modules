@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:14 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/04 00:51:21 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/04 01:05:12 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ class BitcoinExchange
     private:
         std::map<std::string, int> _database;
 
-        BitcoinExchange(void);
+        void    loadDatabase(std::string dbName);
+
+        BitcoinExchange();
         BitcoinExchange(BitcoinExchange const &copy);
         BitcoinExchange &operator = (BitcoinExchange const &other);
         
     public:
-        static  BitcoinExchange *const btcExchange;
+        static BitcoinExchange&    getInstance();
 
         ~BitcoinExchange();
 

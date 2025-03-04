@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/04 00:51:18 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/04 01:08:44 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main(void)
 {
-    BitcoinExchange ex;
+    BitcoinExchange &ex = BitcoinExchange::getInstance();
 
     ex.test();
 
