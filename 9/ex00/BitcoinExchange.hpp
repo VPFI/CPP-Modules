@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:14 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/04 01:05:12 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/04 18:14:43 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,17 @@
 #include <fstream>
 #include <iostream>
 #include <stdlib.h>
+#include <limits>
 
-#define DATABASE_FILE "btcData.csv"
+#define DATABASE_FILE "data.csv"
 
 class BitcoinExchange
 {
     private:
-        std::map<std::string, int> _database;
+        std::map<std::string, float> _database;
 
-        void    loadDatabase(std::string dbName);
+        void    	loadDatabase(std::string const &dbName);
+		std::string	closestKey(std::string const &key);
 
         BitcoinExchange();
         BitcoinExchange(BitcoinExchange const &copy);
@@ -34,7 +36,8 @@ class BitcoinExchange
     public:
         static BitcoinExchange&    getInstance();
 
-        ~BitcoinExchange();
+        void    printData();
+		void	customDataInput(std::string const &inputData);
 
-        void    test();
+        ~BitcoinExchange();
 };

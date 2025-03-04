@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
+#    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/03/04 18:13:21 by vperez-f         ###   ########.fr        #
+#    Updated: 2025/03/03 19:45:00 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = btc
 
-SRC = main.cpp RPN.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 OBJ_DIR = obj/
 

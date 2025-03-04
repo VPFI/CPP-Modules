@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
+#    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/02/26 17:37:31 by vpf              ###   ########.fr        #
+#    Updated: 2025/03/04 19:18:56 by vperez-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = array
 
-SRC = mainsubj.cpp 
+SRC = main.cpp 
 
 OBJ_DIR = obj/
 

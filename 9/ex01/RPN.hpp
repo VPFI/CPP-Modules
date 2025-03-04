@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/04 15:36:47 by vperez-f         ###   ########.fr       */
+/*   Created: 2025/02/17 18:09:14 by vpf               #+#    #+#             */
+/*   Updated: 2025/03/04 19:32:03 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "BitcoinExchange.hpp"
+#pragma once
 
-int main(int argc, char **argv)
+#include <stack>
+#include <string>
+
+class RPN
 {
-    BitcoinExchange &btc = BitcoinExchange::getInstance();
-	if (argc == 1)
-    	btc.printData();
-	else if (argc == 2)
-	{
-		btc.customDataInput(argv[1]);
-	}
-	else
-		std::cout << "Wrong number of arguments || ./btc [optional input.txt] --> Date | value-modifier" << std::endl;
+    private:
+        std::stack<float> _stack;
 
-    return (0);
-}
+        void    	loadStack(std::string const &dbName);
+		RPN();
+        
+    public:
+		RPN(std::string const &stack);
+        RPN(RPN const &copy);
+        RPN &operator = (RPN const &other);
+
+        ~RPN();
+
+        void    printData();
+};
