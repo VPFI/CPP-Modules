@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:17:06 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/04 20:04:31 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:24:37 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,9 @@ class Fixed
 		Fixed(const int n);
 		Fixed(const float n);
 		Fixed(const Fixed &f);
+
 		Fixed &operator = (const Fixed &f);
-		friend std::ostream &operator << (std::ostream &out_s, const Fixed &f);
+
 		~Fixed();
 
 		int		getRawBits( void ) const;
@@ -36,3 +37,5 @@ class Fixed
 		int		toInt( void ) const;
 		float	toFloat( void ) const;
 };
+
+std::ostream &operator << (std::ostream &out_s, const Fixed &f);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:17:06 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/04 16:03:49 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:24:44 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &f);
+
 		Fixed &operator = (const Fixed &f);
+
 		~Fixed();
 
 		int		getRawBits( void ) const;

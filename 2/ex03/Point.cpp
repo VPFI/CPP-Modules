@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:04:09 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/05 19:25:55 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/05 20:00:31 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ Point::Point(float const x, float const y) : _x(x), _y(y) { }
 
 Point &Point::operator = (Point const &p)
 {
+    (void)p;
+
     return (*this);
 }
 

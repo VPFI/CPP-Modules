@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 15:17:06 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/04 20:58:35 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/03/06 18:24:58 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ class Fixed
 		Fixed &operator -- (void);
 		Fixed operator -- (int);
 
-		friend std::ostream &operator << (std::ostream &out_s, const Fixed &f);
-
 		static Fixed &min(Fixed &n1, Fixed &n2);
 		static const Fixed &min(const Fixed &n1, const Fixed &n2);
 		static Fixed &max(Fixed &n1, Fixed &n2);
@@ -62,3 +60,5 @@ class Fixed
 		int		toInt( void ) const;
 		float	toFloat( void ) const;
 };
+
+std::ostream &operator << (std::ostream &out_s, const Fixed &f);

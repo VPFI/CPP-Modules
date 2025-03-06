@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
+#    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/02/04 19:05:21 by vperez-f         ###   ########.fr        #
+#    Updated: 2025/03/05 19:59:33 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fixed
 
-SRC = main.cpp Fixed.cpp
+SRC = main.cpp Fixed.cpp Point.cpp
 
 OBJ_DIR = obj/
 
