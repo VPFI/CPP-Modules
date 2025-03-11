@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RPN.hpp                                            :+:      :+:    :+:   */
+/*   PmergeMe.hpp										:+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,30 +12,28 @@
 
 #pragma once
 
-#include <stack>
+#include <vector>
 #include <string>
 #include <iostream>
 #include <exception>
 #include <cstdlib>
 
-class RPN
+class PmergeMe
 {
 	private:
-		std::string				_input;
-
-		std::string	getToken(size_t &pos, size_t &space) const;
-
-		RPN();
+		std::vector<unsigned int>	_input;
 		
 	public:
-		RPN(std::string const &stack);
-		RPN(RPN const &copy);
-		RPN &operator = (RPN const &other);
+		PmergeMe();
+		PmergeMe(std::vector<unsigned int> const &stack);
+		PmergeMe(PmergeMe const &copy);
 
-		~RPN();
+		PmergeMe &operator = (PmergeMe const &other);
 
-		std::string	getInput(void) const;
-		void    	calculate();
+		~PmergeMe();
+
+		std::vector<unsigned int>	getInput() const;
+		void						sort();
 
 		class WrongInput : public std::exception
         {

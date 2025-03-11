@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 21:24:09 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/08 01:06:58 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/11 23:11:53 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ DiamondTrap::DiamondTrap()
     std::cout
         << "Default DiamondTrap constructor called"
     << std::endl;
-    this->_hit_points = FragTrap::_hit_points; // To force correct values I think we need to hard-code them
-    this->_energy_points = ScavTrap::_energy_points;
-    this->_attack_damage = FragTrap::_attack_damage;
+    this->_hit_points = 100;
+    this->_energy_points = 50;
+    this->_attack_damage = 30;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), _name(name)
@@ -27,9 +27,9 @@ DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), Scav
     std::cout
         << "Name DiamondTrap (" << name << ") constructor called"
     << std::endl;
-    this->_hit_points = FragTrap::_hit_points; // To force correct values I think we need to hard-code them
-    this->_energy_points = ScavTrap::_energy_points;
-    this->_attack_damage = FragTrap::_attack_damage;
+    this->_hit_points = 100;
+    this->_energy_points = 50;
+    this->_attack_damage = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &copy) : ClapTrap(copy), ScavTrap(copy), FragTrap(copy)

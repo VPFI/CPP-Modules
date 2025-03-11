@@ -6,13 +6,13 @@
 #    By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/03/06 23:51:55 by vpf              ###   ########.fr        #
+#    Updated: 2025/03/07 13:02:57 by vpf              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PmergeMe
 
-SRC = main.cpp RPN.cpp
+SRC = main.cpp PmergeMe.cpp
 
 OBJ_DIR = obj/
 
