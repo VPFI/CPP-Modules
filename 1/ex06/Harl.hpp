@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 01:21:51 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/02 01:39:49 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/20 15:40:01 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include <string>
 #include <iostream>
 
-#define DEBUG   359
-#define INFO    300
-#define WARNING 534
-#define ERROR   394
+#define DEBUG   14287
+#define INFO    9815
+#define WARNING 27365
+#define ERROR   15665
 
 class Harl
 {

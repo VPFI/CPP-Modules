@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Harl.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 01:21:42 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/02 01:44:05 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/20 15:40:45 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    Harl::complain(std::string level)
 {
     size_t  sum = 0;
 
-    for (size_t i = 0; i < level.size(); i++) {sum += level[i];};
+    for (size_t i = 0; i < level.size(); i++) {sum += (level[i] * (13 * (i + 1)));};
     switch (sum)
     {
         case (DEBUG):

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/07 18:40:44 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/12 21:07:49 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main(int argc, char **argv)
 {
+	(void)argv;
 	if (argc < 2)
 	{
 		std::cerr << "Invalid number of arguments" << std::endl;
@@ -23,9 +24,12 @@ int main(int argc, char **argv)
 	try
 	{
 		std::vector<unsigned int> nums;
-		for (int i = 1; i < argc; i++)
-			nums.emplace_back(std::atof(argv[i]));
+		nums.push_back(1);
+		nums.push_back(2);
+		nums.push_back(3);
+		nums.push_back(4);
 		PmergeMe	calc(nums);
+		calc.sort();
 	}
 	catch(const std::exception& e)
 	{

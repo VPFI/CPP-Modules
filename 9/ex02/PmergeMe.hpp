@@ -12,11 +12,9 @@
 
 #pragma once
 
+#include <algorithm>
 #include <vector>
-#include <string>
 #include <iostream>
-#include <exception>
-#include <cstdlib>
 
 class PmergeMe
 {
@@ -33,7 +31,7 @@ class PmergeMe
 		~PmergeMe();
 
 		std::vector<unsigned int>	getInput() const;
-		void						sort();
+		void    					sort();
 
 		class WrongInput : public std::exception
         {
