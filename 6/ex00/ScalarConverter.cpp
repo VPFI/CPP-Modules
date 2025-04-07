@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 18:09:17 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/23 23:41:06 by vpf              ###   ########.fr       */
+/*   Updated: 2025/04/07 18:57:59 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void    convertToChar(std::string &input, e_inputType type)
 	{
 		std::cout << "'" << input << "'";
 	}
-	else if (std::isprint(rawValue))
+	else if (rawValue > 256 && rawValue < 0 && std::isprint(rawValue))
 	{
 		std::cout << "'" << static_cast<unsigned char>(rawValue) << "'";
 	}
