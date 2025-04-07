@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 01:49:21 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/14 14:40:40 by vpf              ###   ########.fr       */
+/*   Updated: 2025/04/01 16:01:05 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ AForm::AForm(std::string name, int gradeToSign, int gradeToExec): _name(name),
 }
 
 AForm::AForm(const AForm &copy) : _name(copy.getName()),
-    _signReq(copy.getSignGrade()), _execReq(getExecGrade()), _signed(copy.getSigned())
+    _signReq(copy.getSignGrade()), _execReq(copy.getExecGrade()), _signed(copy.getSigned())
 {
     std::cout
         << "Copy Form constructor called"
@@ -67,7 +67,7 @@ AForm &AForm::operator = (const AForm &other)
     << std::endl;
     if (this != &other)
     {
-        this->_signed = other._signed; // doesn't make much sense
+        this->_signed = other.getSigned(); // doesn't make much sense
     }
     return (*this);
 }

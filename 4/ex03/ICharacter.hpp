@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 00:18:15 by vpf               #+#    #+#             */
-/*   Updated: 2025/02/13 02:17:42 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/24 18:57:14 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,4 @@ class ICharacter
         virtual void equip(AMateria* m) = 0;
         virtual void unequip(int idx) = 0;
         virtual void use(int idx, ICharacter& target) = 0;
-
-        virtual void		printHUD( void ) = 0;
-		virtual AMateria *	getMateria( int idx ) = 0;
 };
