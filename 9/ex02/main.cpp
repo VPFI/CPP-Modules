@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/12 21:07:49 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/04/14 19:42:26 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@ int main(int argc, char **argv)
 	try
 	{
 		std::vector<unsigned int> nums;
-		nums.push_back(1);
-		nums.push_back(2);
-		nums.push_back(3);
-		nums.push_back(4);
+		for (int i = 1; i < argc; i++)
+			nums.push_back(std::atof(argv[i]));
 		PmergeMe	calc(nums);
 		calc.sort();
 	}
