@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/07 18:40:44 by vpf              ###   ########.fr       */
+/*   Updated: 2025/03/13 19:26:49 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ int main(int argc, char **argv)
 	{
 		std::vector<unsigned int> nums;
 		for (int i = 1; i < argc; i++)
-			nums.emplace_back(std::atof(argv[i]));
+			nums.push_back(std::atof(argv[i]));
 		PmergeMe	calc(nums);
+		calc.sort();
 	}
 	catch(const std::exception& e)
 	{
