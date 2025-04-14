@@ -6,7 +6,7 @@
 /*   By: vpf <vpf@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 20:34:04 by vperez-f          #+#    #+#             */
-/*   Updated: 2025/02/26 17:16:33 by vpf              ###   ########.fr       */
+/*   Updated: 2025/04/13 14:50:25 by vpf              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ Array<T>::Array(std::size_t n) : _array(new T[n]()), _size(n)
 }
 
 template <typename T>
-Array<T>::Array(const Array &copy) : _array(new T[copy._size]()), _size(copy._size)
+Array<T>::Array(const Array &copy)
 {
+	*this = copy;
 	return ;
 }
 
