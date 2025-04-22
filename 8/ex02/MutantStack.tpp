@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:32:34 by vpf               #+#    #+#             */
-/*   Updated: 2025/04/14 19:26:57 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:21:58 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,18 @@ MutantStack<T>::MutantStack()
 template <typename T>
 MutantStack<T>::MutantStack(MutantStack const &copy)
 {
-    
+	*this = copy;
+}
+
+template <typename T>
+MutantStack<T> &MutantStack<T>::operator = (const MutantStack<T> &other)
+{
+	if (this != &other)
+	{
+		std::stack<T>::operator=(other);
+	}
+
+	return (*this);
 }
 
 template <typename T>

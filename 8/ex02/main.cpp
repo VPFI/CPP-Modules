@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 16:45:31 by vpf               #+#    #+#             */
-/*   Updated: 2025/04/14 19:38:45 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/04/16 18:24:18 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ int main()
 		mstack.push(737);
 		//[...]
 		mstack.push(0);
+
+		MutantStack<int> stack2;
+
+		stack2 = mstack;
+
+		std::cout << stack2.top() << "asdaqewqweqew" << std::endl;
 
 		MutantStack<int>::iterator it = mstack.begin();
 		//MutantStack<int>::const_iterator cstit = mstack.begin();
