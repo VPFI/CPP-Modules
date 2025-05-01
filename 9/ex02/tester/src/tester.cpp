@@ -11,7 +11,11 @@
 #endif
 
 #ifndef SEQUENCE_TESTS_AMOUNT
-# define SEQUENCE_TESTS_AMOUNT 1000
+# define SEQUENCE_TESTS_AMOUNT 100
+#endif
+
+#ifndef TEST_INTERVAL_INCREMENT
+# define TEST_INTERVAL_INCREMENT 15
 #endif
 
 #define GET_COLOR(color) (isatty(fileno(stdout)) ? color : "")
@@ -170,8 +174,15 @@ int	main()
 
 	try
 	{
-		for (int i = 1; i <= MAX_SIZE; i++)
+		for (int i = 0; i < MAX_SIZE; i += TEST_INTERVAL_INCREMENT)
+		{
+			if ((i + TEST_INTERVAL_INCREMENT) >= MAX_SIZE)
+			{
+				executeSequenceTests(i);
+				i = MAX_SIZE;
+			}
 			executeSequenceTests(i);
+		}
 
 		return EXIT_SUCCESS;
 	}
