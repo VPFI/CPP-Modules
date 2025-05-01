@@ -22,28 +22,27 @@ CYAN = \033[0;36m
 
 
 # ---- # Vars # ---- #
-NAME = PmergeMe
+NAME = tester
 
 C++ = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -O2 #-g -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -O3 -DSEQUENCE_TESTS_AMOUNT=10#-g -fsanitize=address
 
 SRC = src/
+PROGRAM_SRC = ../src/
 BIN_DIR = bin/
-INC = -I$(SRC)
-TESTER=tester/
+INC = -I$(SRC) -I$(PROGRAM_SRC)
 
-FILES = main.cpp \
-		PmergeMe.cpp
+FILES = tester.cpp \
+		PmergeMe.cpp \
+		TestResult.cpp
 OBJS = $(FILES:%.cpp=$(BIN_DIR)%.o)
 DEPS = $(OBJS:%.o=%.d)
-
-TESTER_BINARY=./tester
-TEST_LOG_FILE=tests.log
 # ------------------ #
 
 # --- # vpath # ---- #
 vpath %.cpp $(SRC):\
-			$(SRC)/PmergeMe
+			$(PROGRAM_SRC)/PmergeMe:\
+			$(SRC)/TestResult
 # ------------------ #
 
 
@@ -71,16 +70,6 @@ fclean: clean
 	@printf "$(RED)Executable $(WHITE)$(NAME)$(RED) removed.$(RESET)\n"
 
 re: fclean all
-
-test:
-	@cd $(TESTER) && $(MAKE) --no-print-directory && $(TESTER_BINARY)
-
-testlog:
-	@cd $(TESTER) && $(MAKE) --no-print-directory && $(TESTER_BINARY) > $(TEST_LOG_FILE)
-
-testfcl:
-	@cd $(TESTER) && $(MAKE) --no-print-directory fclean
-
 # ------------------ #
 
 # --- # Extras # --- #
@@ -89,10 +78,7 @@ testfcl:
 .PHONY: all \
 		clean \
 		fclean \
-		re \
-		test \
-		testlog \
-		testfcl
+		re
 
 .SILENT:
 # ------------------ #
