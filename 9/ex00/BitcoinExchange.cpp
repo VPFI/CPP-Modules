@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:32:34 by vpf               #+#    #+#             */
-/*   Updated: 2025/03/04 19:46:14 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/05/05 17:46:21 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void    BitcoinExchange::loadDatabase(std::string const &dbName)
         }
     }
     else
-        throw (std::runtime_error("Couldn't open database"));
+        throw (std::runtime_error("Error: Couldn't open database"));
     csv.close();
 }
 
@@ -69,7 +69,16 @@ BitcoinExchange &BitcoinExchange::getInstance()
     return (instance);
 }
 
-static bool checkValue(long value)
+static bool	isInt(const char *str)
+{
+	int					num;
+	std::istringstream	stream(str);
+
+	stream >> std::noskipws >> num;
+	return (stream.eof() && !stream.fail());
+}
+
+static bool checkValue(float value)
 {
 	if (value > 1000)
 		std::cerr << "Error: too large a number" << std::endl;
@@ -81,7 +90,16 @@ static bool checkValue(long value)
 }
 
 static bool checkDateKey(std::string const &key)
-{
+{	
+	if (!isInt(key.substr(0, key.find('-')).c_str())
+		|| !isInt(key.substr(key.find('-') + 1, key.rfind('-') - (key.find('-') + 1)).c_str())
+		|| !isInt(key.substr(key.rfind('-') + 1).c_str()))
+	{
+		std::cerr << "Error: bad input => " << key << std::endl;
+
+		return (0);
+	}
+	
 	long	year = std::atol(key.substr(0, key.find('-')).c_str());
 	long	month = std::atol(key.substr(key.find('-') + 1, key.rfind('-')).c_str());
 	long	day = std::atol(key.substr(key.rfind('-') + 1).c_str());
@@ -98,7 +116,7 @@ static bool checkDateKey(std::string const &key)
 	return (1);
 }
 
-static bool	checkFormat(std::string const &key, long value)
+static bool	checkFormat(std::string const &key, float value)
 {
 	if (!checkDateKey(key) || !checkValue(value))
 	{
@@ -116,7 +134,7 @@ std::string	BitcoinExchange::closestKey(std::string const &key)
 			return (key);
 	}
 	catch(const std::exception& e) {}
-	std::string	resKey = "NULL";
+	std::string	resKey;
 	std::map<std::string, float>::iterator it = this->_database.begin();
 	while (it != this->_database.end())
 	{
@@ -125,6 +143,8 @@ std::string	BitcoinExchange::closestKey(std::string const &key)
 		resKey = it->first;
 		it++;
 	}
+	if (resKey == "")
+		throw std::runtime_error("Error: No closest key possible");
 	return (resKey);
 }
 
@@ -133,6 +153,7 @@ void	BitcoinExchange::customDataInput(std::string const &inputData)
 	std::fstream                inputFile;
     std::string                 line;
     std::string                 inputKey;
+	std::string                 adjustedKey;
     float                       valueModifier;
 
     inputFile.open(inputData.c_str());
@@ -140,17 +161,23 @@ void	BitcoinExchange::customDataInput(std::string const &inputData)
     {
         while (getline(inputFile, line))
         {
-            inputKey = line.substr(0, line.find('|') - 1);
-            valueModifier = std::atof((line.substr(line.find('|') + 1)).c_str());
-			if (!checkFormat(inputKey, valueModifier))
-				continue ;
-			std::cout << inputKey;
-			inputKey = closestKey(inputKey);
-            std::cout << " => " << valueModifier << " = " << (this->_database.at(inputKey) * valueModifier) << std::endl;
+			try
+			{
+				inputKey = line.substr(0, line.find('|') - 1);
+				valueModifier = std::atof((line.substr(line.find('|') + 1)).c_str());
+				if (!checkFormat(inputKey, valueModifier))
+					continue ;
+				adjustedKey = closestKey(inputKey);
+				std::cout << inputKey << " => " << valueModifier << " = " << (this->_database.at(adjustedKey) * valueModifier) << std::endl;
+			}
+			catch(const std::exception& e)
+			{
+				std::cerr << e.what() << std::endl;
+			}
         }
     }
     else
-        throw (std::runtime_error("Couldn't open input data"));
+        throw (std::runtime_error("Error: Couldn't open input data"));
     inputFile.close();
 
 	return ;

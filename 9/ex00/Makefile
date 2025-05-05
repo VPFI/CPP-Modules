@@ -6,13 +6,13 @@
 #    By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/30 20:19:37 by vpf               #+#    #+#              #
-#    Updated: 2025/03/04 18:13:21 by vperez-f         ###   ########.fr        #
+#    Updated: 2025/05/05 16:23:57 by vperez-f         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = RPN
+NAME = BTC
 
-SRC = main.cpp RPN.cpp
+SRC = main.cpp BitcoinExchange.cpp
 
 OBJ_DIR = obj/
 
