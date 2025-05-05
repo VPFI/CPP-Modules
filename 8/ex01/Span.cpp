@@ -6,7 +6,7 @@
 /*   By: vperez-f <vperez-f@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 23:14:04 by vpf               #+#    #+#             */
-/*   Updated: 2025/04/16 18:12:23 by vperez-f         ###   ########.fr       */
+/*   Updated: 2025/05/05 13:41:48 by vperez-f         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,8 @@ size_t    Span::longestSpan() const
     if (this->_current < 2)
         throw (std::runtime_error("Not enough numbers to calculate Span"));
 
-    int max = this->_data[0]; // you can use min-max but this is more efficient
-    int min = this->_data[0]; // you can use min-max but this is more efficient
+    int max = this->_data[0]; // you can use min-max
+    int min = this->_data[0]; // you can use min-max
 
     for (std::size_t i = 1; i < this->_current; i++)
     {
