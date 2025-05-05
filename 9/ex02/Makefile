@@ -81,6 +81,9 @@ testlog:
 testfcl:
 	@cd $(TESTER) && $(MAKE) --no-print-directory fclean
 
+cleanall: fclean testfcl
+
+
 # ------------------ #
 
 # --- # Extras # --- #

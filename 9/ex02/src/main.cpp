@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 		printVector("After:  ", vector);
 
 		std::cout << "Comparisons: " << comparisons << " (MAX = " << getMaxComparisons(vector.size()) << ") | ("
-			<< std::setprecision(3) << comparisons / static_cast<double>(vector.size()) << "%)" << std::endl;
+			<< std::setprecision(3) << (comparisons / static_cast<double>(getMaxComparisons(vector.size()))) * 100 << "%)" << std::endl;
 		std::cout << "Time to process a range of " << std::setw(4) << vector.size() << " elements with std::vector : " << vectorTime << " ms" << std::endl;
 		std::cout << "Time to process a range of " << std::setw(4) << vector.size() << " elements with std::deque : " << dequeTime << " ms" << std::endl;
 	}
